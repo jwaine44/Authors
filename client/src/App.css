@@ -1,0 +1,12 @@
+.App {
+  margin: 0 auto;
+  width: 70%;
+}
+
+.bigger {
+  width: 300px;
+}
+
+.smaller {
+  width: 500px;
+}
