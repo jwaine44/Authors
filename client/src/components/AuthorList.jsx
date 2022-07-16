@@ -17,6 +17,7 @@ const AuthorList = (props) => {
   return (
     <div>
             <table>
+                <tbody>
                     <tr className='smaller'>
                         <th>Author</th>
                         <th>Actions available</th>
@@ -36,6 +37,7 @@ const AuthorList = (props) => {
                     </tr>
                     </div>
             })}
+                </tbody>
             </table>
     </div>
   )

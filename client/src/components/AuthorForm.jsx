@@ -18,7 +18,7 @@ export default props => {
                     errorArr.push(errorResponse[key].message)
                 }
                 setErrors(errorArr);
-                alert("Invalid Entry! Author must have more than three characters!")
+                alert("Invalid Entry! Author must have three characters or more!")
             })
             navigate('/')
     }
