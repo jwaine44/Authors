@@ -10,7 +10,7 @@ export default props => {
     const onSubmitHandler = e => {
         e.preventDefault();
         axios.post('http://localhost:8000/api/authors', {name})
-            .then(res => console.log("Response: ", res))
+            .then(res => navigate('/'))
             .catch(err => {
                 const errorResponse = err.response.data.errors;
                 const errorArr = [];
@@ -18,9 +18,7 @@ export default props => {
                     errorArr.push(errorResponse[key].message)
                 }
                 setErrors(errorArr);
-                alert("Invalid Entry! Author must have three characters or more!")
             })
-            navigate('/')
     }
 
   return (
@@ -31,7 +29,7 @@ export default props => {
         </p>
         <p>Add a new author:</p>
         <form onSubmit = {onSubmitHandler}>
-            {errors.map((err, index) => <p key = {index}>{err}</p>)}
+            {errors.map((err, index) => <p key = {index}><b>{err}</b></p>)}
             <label>Name:</label><br></br>
             <input type = 'text' onChange = {e => setName(e.target.value)}></input>
             <button type='submit'>Submit</button>

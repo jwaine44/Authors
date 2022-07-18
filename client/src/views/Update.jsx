@@ -20,7 +20,7 @@ const Update = (props) => {
         axios.put(`http://localhost:8000/api/authors/${id}`, {
             name
         })
-            .then(res => console.log(res))
+            .then(res => navigate('/'))
             .catch(err => {
                 const errorResponse = err.response.data.errors;
                 const errorArr = [];
@@ -28,9 +28,7 @@ const Update = (props) => {
                     errorArr.push(errorResponse[key].message)
                 }
                 setErrors(errorArr);
-                alert("Invalid Entry! Author must have three characters or more!")
             })
-            navigate('/')
     }
 
   return (
@@ -41,7 +39,7 @@ const Update = (props) => {
         </p>
         <p>Edit this author</p>
         <form onSubmit = {updateAuthor}>
-            {errors.map((err, index) => <p key = {index}>{err}</p>)}
+            {errors.map((err, index) => <p key = {index}><b>{err}</b></p>)}
             <label>Name:</label><br></br>
             <input type = 'text' value = {name} onChange = {e => setName(e.target.value)}></input>
             <button type='submit'>Submit</button>
